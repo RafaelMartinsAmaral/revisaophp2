@@ -1,3 +1,26 @@
+<?php
+
+$conexao = new mysqli('localhost','root','','revisaophp');
+
+
+
+if ($conexao->connect_error) {
+    die('Erro de conexão'. $conexao->connect_error);
+} else {
+
+}
+
+$id=$_GET['id'];
+
+
+$sql="select * from produto where id ='$id'";
+
+$resultado = $conexao->query($sql); 
+$row = $resultado->fetch_assoc();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,7 +42,7 @@
                     </div>
                     <div class="card-body">
 
-                  <form action="../controller/EditarProduto.php" method="post" enctype="multipart/form-data"  >
+                  <form action="../controller/Resave.php" method="post" enctype="multipart/form-data"  >
                 <br>
                 <label> envie sua Imagem aqui</label>
                 <input type="file" name="imagem" id="imagem">
@@ -39,6 +62,10 @@
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição dao produto</label>
                                 <textarea class="form-control" id="descricao" name="descricao" rows="3" value="<?php echo $row ["descricao"]?>" required> required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                
+                                <input type="hidden" id="id" name="id" value="<?php echo $row ["id"]?>" rows="3" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Adicionar</button>
                         </form>
