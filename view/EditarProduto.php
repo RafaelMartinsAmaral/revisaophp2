@@ -49,19 +49,19 @@ $row = $resultado->fetch_assoc();
 
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome do produto</label>
-                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $row ["nome"]?>" required> required>
+                                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $row ["nome"]?>" required> 
                             </div>
                             <div class="mb-3">
                                 <label for="tipo" class="form-label">Tipo do produto</label>
-                                <input type="text" class="form-control" id="tipo" name="tipo" value="<?php echo $row ["tipo"]?>" required> required>
+                                <input type="text" class="form-control" id="tipo" name="tipo" value="<?php echo $row ["tipo"]?>" required> 
                             </div>
                             <div class="mb-3">
                                 <label for="preco" class="form-label">Preço do produto</label>
-                                <input type="number" class="form-control" id="preco" name="preco" value="<?php echo $row ["preco"]?>" required> required>
+                                <input type="number" class="form-control" id="preco" name="preco" value="<?php echo $row ["preco"]?>" required> 
                             </div>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição dao produto</label>
-                                <textarea class="form-control" id="descricao" name="descricao" rows="3" value="<?php echo $row ["descricao"]?>" required> required></textarea>
+                                <textarea class="form-control" id="descricao" name="descricao" rows="3" value="<?php echo $row ["descricao"]?>" required></textarea>
                             </div>
                             <div class="mb-3">
                                 

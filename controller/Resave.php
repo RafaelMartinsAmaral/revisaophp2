@@ -7,16 +7,22 @@ if ($conexao->connect_error) {
 } else {
     echo 'sucesso' . "<br>";
 }
-$imagem=$_POST['imagem'];
+
+$destino = '../view/imagensProdutos/' . $_FILES['imagem']['name'];
+$arquivo_tmp = $_FILES['imagem']['tmp_name'];
+move_uploaded_file($arquivo_tmp, $destino);
+
+
+$imagem=$arquivo_tmp ;
 $tipo=$_POST['tipo'];
 $preco=$_POST['preco'];
-$id_noticia = $_POST['id'];
+$id_produto = $_POST['id'];
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];
 
 
-$sql = "UPDATE noticia SET id='$id_noticia',nome='$nome', tipo='$tipo', preco='$preco' descricao='$descricao' imagem='$imagem' WHERE id='$id_noticia';";
-
+$sql = "UPDATE produto SET id='$id_produto',nome='$nome', tipo='$tipo', preco='$preco', descricao='$descricao' ,imagem='$imagem' WHERE id='$id_produto';";
+echo $sql;
 if ($conexao->query($sql) === TRUE) {
     header("Location: ../view/ListaProdutos.php");
 } else {
